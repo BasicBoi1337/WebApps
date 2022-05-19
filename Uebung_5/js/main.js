@@ -1,3 +1,4 @@
+'use strict'
 //Aufgabe 2.1)
 document.write("Hello WebApps" + "<br />")
 
@@ -66,12 +67,10 @@ console.log(concat("Hello ", "World!"));
 //Aufgabe 3.2)
 //TODO: Nochmal drüberschauen lassen
 function summe(n){
-    let sum = 0;
     if (n <= 0){
-        return sum;
+        return 0;
     }
-    sum += n;
-    return summe(n-1);
+    return n + summe(n-1);
 }
 
 console.log(summe(5));
@@ -91,6 +90,14 @@ console.log(iterFak(6));
 
 //rekursiv
 //TODO:
+function rekFak(n){
+    if (n <= 0){
+        return 1;
+    }
+    return n * rekFak(n-1);
+}
+
+console.log(rekFak(5));
 
 //Aufgabe 3.4)
 function pyramid(n){
@@ -115,3 +122,88 @@ pyramid(8);
 
 //Aufgabe 4)
 //TODO: Alle Unteraufgaben von Aufgabe 4.
+
+//Aufgabe 4.1)
+let arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+let i = day;
+
+document.write("<br />" + arr[i] + "<br />");
+
+//Aufgabe 4.2)
+function fillArr(a, b, n){
+    let size = n;
+    let arr = new Array(size);
+    let random = 0;
+
+    for(let i = 0; i < arr.length; i++){
+        random = Math.floor(Math.random() * (b - a) + a);
+        arr[i] = random;
+    }
+
+    return arr;
+}
+
+document.write(fillArr(2, 7, 100) + "<br />");
+
+//Aufgabe 4.3)
+function sumArr(arr){
+    let sum = 0;
+    document.write("<br />" + "Für die Addition wurde folgendes Array genutzt: " + arr + "<br />");
+
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i];
+    }
+
+    return sum;
+}
+
+document.write("<br />" + "Die Summe der Array-Elemente beträgt: " + sumArr(fillArr(2, 5, 10)) + "<br />");
+
+//Aufgabe 4.4)
+function groessteZahl(arr){
+    let biggest = 0;
+
+    document.write("<br />" + "Für das Suchen der größten Zahl wurde folgendes Array genutzt: " + arr + "<br />");    
+
+    for(let i = 1; i < arr.length; i++){
+        if(arr[i - 1] > arr[i]){
+            biggest = arr[i - 1];
+        } else {
+            biggest = arr[i];
+        }
+    }
+
+    return biggest;
+}
+
+document.write("Die größte Zahl lautet: " + groessteZahl(fillArr(1, 10, 10)) + "<br />");
+
+//Aufgabe 4.5)
+function multiArr(){
+    let arr = [];
+    for (var i = 0; i < 12; i++) {
+        arr[i] = [];
+        for (var j = 0; j < 81; j++) {
+            arr[i][j] = Math.floor(Math.random() * (10 - 1) + 1);;
+        }
+    }
+
+    return arr;
+}
+
+function printMultiArr(arr){
+    for(let i = 0; i < arr[i].length; i++){
+        document.write("[ ");
+        for(let j = 0; j < arr.length; j++){
+            document.write(arr[i][j] + " ");
+        }
+        document.write(" ]");
+        document.write("<br />");
+    }
+}
+
+printMultiArr(multiArr());
+
+//Aufgabe 5)
+//TODO: Aufgabe fertig machen.
