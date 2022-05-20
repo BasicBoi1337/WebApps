@@ -22,6 +22,10 @@ div{
     padding: 1em;
 }
 
+textarea{
+    vertical-align: top;
+}
+
 label.align {
     text-align: right;
     display: inline-block;

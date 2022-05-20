@@ -144,7 +144,7 @@ function fillArr(a, b, n){
     return arr;
 }
 
-document.write(fillArr(2, 7, 100) + "<br />");
+document.write(fillArr(2, 7, 10) + "<br />");
 
 //Aufgabe 4.3)
 function sumArr(arr){
@@ -207,3 +207,5 @@ printMultiArr(multiArr());
 
 //Aufgabe 5)
 //TODO: Aufgabe fertig machen.
+// Query-String lautet:
+//https://vulcan.informatik.hs-fulda.de/bmi_berechnen.php?gewicht=95&groesse=1.87&geschlecht=on&uname=Manu&email=TestMail%40TestMail.com&anmerk=Das+ist+schoen
