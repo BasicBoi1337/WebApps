@@ -1,6 +1,6 @@
 'use strict'
 
-//Aufgabe 2
+//Aufgabe 2 
 document.getElementById("jsBMIrechner").addEventListener("click", function(evt){
     let size = document.getElementById("groesse").value;
     let weight = document.getElementById("gewicht").value;

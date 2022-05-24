@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="javascript/main.js" defer></script>
+    <title>BMI Rechner</title>
+</head>
+
+<body>
+    <h1>BMI-Rechner</h1>
+    <form action="https://vulcan.informatik.hs-fulda.de/bmi_berechnen.php" method="get">
+        <fieldset>
+            <legend class="border">Angaben zur BMI-Berechnung</legend>
+
+            <div>
+                <div>
+                    <label for="gewicht" class="align">Gewicht:</label>
+                    <input type="number" id="gewicht" name="gewicht" step="0.5" class="txtFieldWidth" placeholder="60"
+                        required>
+                </div>
+
+                <div>
+                    <label for="groesse" class="align">Größe:</label>
+                    <input type="number" name="groesse" id="groesse" step="0.01" class="txtFieldWidth"
+                        placeholder="1,70" required>
+                </div>
+            </div>
+
+            <fieldset class="lightGray">
+                <legend class="border">Geschlecht</legend>
+
+                <div class="alignRadios">
+                    <input type="radio" name="geschlecht" id="male">
+                    <label for="male">Männlich</label>
+                    <input type="radio" name="geschlecht" id="female">
+                    <label for="female">Weiblich</label>
+                    <input type="radio" name="geschlecht" id="diverse">
+                    <label for="diverse">Sonstige</label>
+                </div>
+            </fieldset>
+
+            <div>
+                <div>
+                    <label for="name" class="align">Name:</label>
+                    <input type="text" id="name" name="uname" placeholder="Max Mustermann" required>
+                </div>
+                <div>
+                    <label for="email" class="align">E-mail:</label>
+                    <input type="text" name="email" id="email" placeholder="max.muster@gmail.com" required>
+                </div>
+                <div>
+                    <label for="anmerk" class="align">Anmerkungen</label>
+                    <textarea name="anmerk" id="anmerk" cols="30" rows="10" placeholder="Tolle Seite"></textarea>
+                </div>
+            </div>
+
+            <div class="alignSubmits">
+                <input type="submit" id="submit">
+                <input type="reset" id="reset">
+            </div>
+        </fieldset>
+    </form>
+    <p id="bmiSolution">Ihr Body Mass Index beträgt ___.</p>
+</body>
+
+</html>
