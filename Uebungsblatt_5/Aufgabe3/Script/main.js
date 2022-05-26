@@ -27,65 +27,70 @@ let mitglieder = [
     },
 ];
 
-//https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
-// Hat gut geholfen
+//Globale Variable erzeugen, um Tabelle nur einmal erstellen zu lassen
+window.tableCreatedAlready = 0;
 
-console.log(mitglieder);
+//Array erzeugen für die Überschriften unserer Tabelle
+let ueberschriften = ["Name", "Vorname", "Email"];
 
+//Button zum Drücken, sodass Tabelle erzeugt wird
 let button = document.getElementById("createTable");
-button.addEventListener("click", generate_table);
+button.addEventListener("click", generateTable);
 
-function createTable(event){
-    let table = document.createElement("table");
-
-    let tr = document.createElement("tr");
-    table.append(tr);
-    let tr2 = document.createElement("tr");
-    table.append(tr2);
-
-    let td = document.createElement("td");
-    td.innerHTML = "test";
-    tr.append(td);
-    td = document.createElement("td");
-    td.innerHTML = "test2";
-    tr.append(td);
-    td = document.createElement("td");
-    td.innerHTML = "test3";
-    tr2.append(td);
-
-    let tableDiv = document.getElementById("tablediv");
-    tableDiv.append(table);
-}
-
-function generate_table(event){
-      // get the reference for the body
-  var body = document.getElementsByTagName("body")[0];
-
-  // creates a <table> element and a <tbody> element
-  var tbl = document.createElement("table");
-  var tblBody = document.createElement("tbody");
-
-  // creating all cells
-  for (var i = 0; i < 2; i++) {
-    // creates a table row
-    var row = document.createElement("tr");
-
-    for (var j = 0; j < 2; j++) {
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode("cell in row "+i+", column "+j);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
+//Funktion zum generieren einer Tabelle über den DOM-Tree
+function generateTable(event){
+    //Wenn die Tabelle bereits einmal erstellt wurde, breche Funktion ab und erstelle keine weitere!
+    if(tableCreatedAlready >= 1){
+        return false;
     }
 
-    // add the row to the end of the table body
-    tblBody.appendChild(row);
-  }
+    //An "body" soll "table" appended werde
+    let body = document.getElementById("tablediv");
+    //Tabelle initialisieren
+    let table = document.createElement("table");
+    //Tabellenkopf mit Überschriften
+    let thead = document.createElement("thead");
+    let theadRow = document.createElement("tr");
+    
+    //Befüllen des Tabellenkopfes mit den Überschriften
+    for(let i = 0; i < ueberschriften.length; i++){
+        let cell = document.createElement("th");
+        let cellText = document.createTextNode(ueberschriften[i]);
+        cell.append(cellText);
+        theadRow.append(cell);
+    }
+    
+    //Inhalt für die Überschriften an Tabelle vernküpfen
+    thead.append(theadRow);
+    table.append(thead);
 
-  // put the <tbody> in the <table>
-  tbl.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tbl);
+    //Tabellenkörper für Inhalt
+    let tbody = document.createElement("tbody");
+
+    //Inhalt für die eigentliche Tabelle hinzufügen
+    for(let i = 0; i < mitglieder.length; i++){
+        let tbodyRow = document.createElement("tr");
+
+        //Um aus den Objekten im Mitglieder-Array die Daten zubekommen, habe ich mit der Funktion Object.values
+        //Aus den Objekten, Arrays generiert, durch die ich dann itteriere und in meine Tabelle einfüge
+        let personen = Object.values(mitglieder[i]);
+
+        for(let j = 0; j < personen.length; j++){
+            let cell = document.createElement("td");
+            let cellText = document.createTextNode(personen[j]);
+            cell.append(cellText);
+            tbodyRow.append(cell);
+        }
+
+        tbody.append(tbodyRow);
+    }
+
+    //Tabelleninhalt an Tabelle knüpfen
+    table.append(tbody);
+
+    //Fertige Tablle an den body verküpfen
+    body.append(table);
+
+    //Wurde Tabelle erstellt, zähle den Counter hoch.
+    tableCreatedAlready++;
 }
