@@ -1,5 +1,9 @@
 'use strict'
 
+//Globale Variable erzeugen, um Tabelle nur einmal erstellen zu lassen
+window.tableCreatedAlready = 0;
+
+//Array mit den Mitglieder Objekten
 let mitglieder = [
     {  
         name : "Smith",
@@ -27,9 +31,6 @@ let mitglieder = [
     },
 ];
 
-//Globale Variable erzeugen, um Tabelle nur einmal erstellen zu lassen
-window.tableCreatedAlready = 0;
-
 //Array erzeugen für die Überschriften unserer Tabelle
 let ueberschriften = ["Name", "Vorname", "Email", "Gruppe"];
 
@@ -40,9 +41,19 @@ button.addEventListener("click", generateTable);
 //Funktion zum generieren einer Tabelle über den DOM-Tree
 function generateTable(event){
     //Wenn die Tabelle bereits einmal erstellt wurde, breche Funktion ab und erstelle keine weitere!
-    if(tableCreatedAlready >= 1){
+    if(tableCreatedAlready === 1){
         return false;
     }
+
+    /*
+    //Zum verstecken der Tabelle allerdings funktioniert dies noch nicht ganz richtig
+    if(tableCreatedAlready % 2 === 1){
+        document.getElementById("tablediv").style.visibility = "hidden";
+        return false;
+    } else {
+        document.getElementById("tablediv").style.visibility = "visible";
+        
+    }*/
 
     //An "body" soll "table" appended werde
     let body = document.getElementById("tablediv");
@@ -117,8 +128,23 @@ function generateTable(event){
     tableCreatedAlready++;
 }
 
+//Funktionen für die Buttons
 function add(){
-    console.log(1);
+    //Hole mir das div, in das die Liste gespeichert werden soll
+    let bulletList = document.getElementById("bulletList");
+    
+    //Eine ungeordnete Liste erstellen
+    let ul = document.createElement("ul");
+
+    //Elemente der Liste erstellen
+    let li = document.createElement("li");
+
+    //Textelement
+    let liText = document.createTextNode("Test")
+
+    li.appendChild(liText);
+    ul.append(li);
+    bulletList.append(ul);
 }
 
 function remove(){
