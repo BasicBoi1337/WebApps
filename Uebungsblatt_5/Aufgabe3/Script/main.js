@@ -31,7 +31,7 @@ let mitglieder = [
 window.tableCreatedAlready = 0;
 
 //Array erzeugen für die Überschriften unserer Tabelle
-let ueberschriften = ["Name", "Vorname", "Email"];
+let ueberschriften = ["Name", "Vorname", "Email", "Gruppe"];
 
 //Button zum Drücken, sodass Tabelle erzeugt wird
 let button = document.getElementById("createTable");
@@ -75,6 +75,7 @@ function generateTable(event){
         //Aus den Objekten, Arrays generiert, durch die ich dann itteriere und in meine Tabelle einfüge
         let personen = Object.values(mitglieder[i]);
 
+        //Befüllen der Tabellenzeilen
         for(let j = 0; j < personen.length; j++){
             let cell = document.createElement("td");
             let cellText = document.createTextNode(personen[j]);
@@ -82,6 +83,27 @@ function generateTable(event){
             tbodyRow.append(cell);
         }
 
+        //Add Button hinzufügen
+        var addBtn = document.createElement("button");
+        addBtn.type = "button";
+        addBtn.className = "add";
+        addBtn.value = "add"
+        addBtn.textContent = "Add"
+        addBtn.addEventListener("click", add);
+
+        //Delete Button hinzufügen
+        var delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "del";
+        delBtn.value = "del"
+        delBtn.textContent = "Delete"
+        delBtn.addEventListener("click", remove)
+
+        //Buttons an die Tabellenzeilen hinzufügen
+        tbodyRow.append(addBtn);
+        tbodyRow.append(delBtn);
+
+        //Tabellenzeilen an den Tabellenkörper hinzufügen
         tbody.append(tbodyRow);
     }
 
@@ -93,4 +115,12 @@ function generateTable(event){
 
     //Wurde Tabelle erstellt, zähle den Counter hoch.
     tableCreatedAlready++;
+}
+
+function add(){
+    console.log(1);
+}
+
+function remove(){
+    console.log(2);
 }
