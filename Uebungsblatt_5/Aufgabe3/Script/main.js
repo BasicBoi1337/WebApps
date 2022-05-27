@@ -129,12 +129,10 @@ function generateTable(event){
 }
 
 //Funktionen für die Buttons
+//TODO: Hinzufügen von Mitgliedern implementieren
 function add(){
     //Hole mir das div, in das die Liste gespeichert werden soll
-    let bulletList = document.getElementById("bulletList");
-    
-    //Eine ungeordnete Liste erstellen
-    let ul = document.createElement("ul");
+    let liste = document.getElementById("liste");
 
     //Elemente der Liste erstellen
     let li = document.createElement("li");
@@ -142,11 +140,10 @@ function add(){
     //Textelement
     let liText = document.createTextNode("Test")
 
-    li.appendChild(liText);
-    ul.append(li);
-    bulletList.append(ul);
+    li.append(liText);
+    liste.append(li);
 }
 
 function remove(){
-    console.log(2);
+    //TODO: Entfernen Funktion implementieren
 }
