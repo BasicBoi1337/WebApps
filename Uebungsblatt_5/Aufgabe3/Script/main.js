@@ -146,4 +146,7 @@ function add(){
 
 function remove(){
     //TODO: Entfernen Funktion implementieren
+    let liste = document.querySelector('#liste')
+
+    liste.lastChild.remove();
 }
