@@ -96,19 +96,40 @@ function generateTable(event){
 
         //Add Button hinzufügen
         var addBtn = document.createElement("button");
+        let btnIDval = "addBtn" + i;
+        addBtn.setAttribute("id", btnIDval);
         addBtn.type = "button";
         addBtn.className = "add";
         addBtn.value = "add"
         addBtn.textContent = "Add"
-        addBtn.addEventListener("click", add);
+        addBtn.addEventListener("click", function(){
+            //Hole mir das div, in das die Liste gespeichert werden soll
+            let liste = document.getElementById("liste");
+
+            //Elemente der Liste erstellen
+            let li = document.createElement("li");
+
+            //Textelement
+            let liText = document.createTextNode("Test")
+
+            li.append(liText);
+            liste.append(li);
+        });
 
         //Delete Button hinzufügen
         var delBtn = document.createElement("button");
+        btnIDval = "delBtn" + i;
+        delBtn.setAttribute("id", btnIDval);
         delBtn.type = "button";
         delBtn.className = "del";
         delBtn.value = "del"
         delBtn.textContent = "Delete"
-        delBtn.addEventListener("click", remove)
+        delBtn.addEventListener("click", function(){
+            //Entfernen Funktion implementiert
+            let liste = document.querySelector('#liste')
+
+            liste.lastChild.remove();
+        })
 
         //Buttons an die Tabellenzeilen hinzufügen
         tbodyRow.append(addBtn);
@@ -126,27 +147,4 @@ function generateTable(event){
 
     //Wurde Tabelle erstellt, zähle den Counter hoch.
     tableCreatedAlready++;
-}
-
-//Funktionen für die Buttons
-//TODO: Hinzufügen von Mitgliedern implementieren
-function add(){
-    //Hole mir das div, in das die Liste gespeichert werden soll
-    let liste = document.getElementById("liste");
-
-    //Elemente der Liste erstellen
-    let li = document.createElement("li");
-
-    //Textelement
-    let liText = document.createTextNode("Test")
-
-    li.append(liText);
-    liste.append(li);
-}
-
-function remove(){
-    //TODO: Entfernen Funktion implementieren
-    let liste = document.querySelector('#liste')
-
-    liste.lastChild.remove();
 }
