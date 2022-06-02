@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello</title>
+        <style>
+        .schiebbar {
+            position: absolute; z-index: 1;
+            width: 150px; height: 80px; left: 50px; top: 50px;
+            background-color: #F6E3CE; border: 2px solid black;
+        }
+        </style>
+        <script>
+            "use strict";
+
+            var elem = document.getElementById("myDiv");
+            var dragging = false;
+            var lastX, lastY;
+
+            elem.addEventListener("onmousedown", function(evt) {
+                dragging = true;
+                lastX = evt.clientX;
+                lastY = evt.clientY;
+            }, false);
+
+            elem.addEventListener("mousemove", function(evt) {
+                if (dragging) {
+                    var style = window.getComputedStyle(elem, null);
+                    var posx = parseInt(style.getPropertyValue("left"));
+                    var posy = parseInt(style.getPropertyValue("top"));
+                    var x = evt.clientX;
+                    var y = evt.clientY;
+                    dx = x - lastX;
+                    dy = y - lastY;
+                    elem.style.left = posx + (dx + "px");
+                    elem.style.top = (posy + dy) + "px";
+                    lastX = x;
+                    lastY = x;
+                }   
+            }, false);
+
+            elem.addEventListener("onmouseup", function(evt) {
+                dragging = false;
+            });
+        </script>
+    </head>
+    <body>
+        <div class="schiebbar" id="myDiv"><span></span></div>
+    </body>
+</html>
