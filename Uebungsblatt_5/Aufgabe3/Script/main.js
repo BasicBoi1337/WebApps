@@ -31,6 +31,8 @@ let mitglieder = [
     },
 ];
 
+let counter = 0;
+
 //Array erzeugen für die Überschriften unserer Tabelle
 let ueberschriften = ["Name", "Vorname", "Email", "Gruppe"];
 
@@ -44,6 +46,10 @@ function generateTable(event){
     if(tableCreatedAlready === 1){
         return false;
     }
+
+    //Löschen des Buttons zum erstellen der Tabelle
+    let tableBtn = document.getElementById("createTable");
+    tableBtn.remove();
 
     /*
     //Zum verstecken der Tabelle allerdings funktioniert dies noch nicht ganz richtig
@@ -62,6 +68,7 @@ function generateTable(event){
     //Tabellenkopf mit Überschriften
     let thead = document.createElement("thead");
     let theadRow = document.createElement("tr");
+    
     
     //Befüllen des Tabellenkopfes mit den Überschriften
     for(let i = 0; i < ueberschriften.length; i++){
