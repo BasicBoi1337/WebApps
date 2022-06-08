@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
-    <script src="Script/main.js" defer></script>
+    <script src="Script/script.js" defer></script>
     <title>Werbeauftritt</title>
 </head>
 
 <body>
-    <h1>Willkommen auf unserer Vereinsseite!</h1>
-
-    <input type="button" value="Zeige Tabelle an!" id="createTable">
-    <div id="tablediv"></div>
-    <h2>Vereinsmitglieder</h1>
-        <div id="bulletList">
-            <ul id="liste"></ul>
-        </div>
+    <h1>Willkommen zu unserem Verein!</h1>
+    <button id="showMembers">Mitglieder anzeigen</button>
+    <div id="tableContainer"></div>
+    <div id="group">
+        <p>Add: füge Teilnehmer zur unten stehenden Liste hinzu</p>
+        <p>Remove: lösche Teilnehmer aus unten stehender Liste</p>
+        <h2>Gruppenteilnehmer:</h2>
+    </div>
+    <ul id="myBullet"></ul>
 </body>
 
 </html>
