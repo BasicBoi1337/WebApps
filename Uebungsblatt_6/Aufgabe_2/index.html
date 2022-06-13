@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <title>Lightbox</title>
+</head>
+
+<body>
+    <img class="thumb" src="https://static-b.imgix.net/starfish.png?w=100&h=100"
+        data-src="https://static-b.imgix.net/starfish.png?w=500&h=500">
+    <img class="thumb" src="https://assets.imgix.net/unsplash/goldengate.jpg?h=100&max-w=100"
+        data-src="https://assets.imgix.net/unsplash/goldengate.jpg?w=500&h=500">
+    <div id="lightbox" class="hide">
+        <a id="close" href="#"></a>
+        <img id="targetImage">
+    </div>
+</body>
+
+</html>
