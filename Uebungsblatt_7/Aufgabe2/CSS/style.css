@@ -1,0 +1,53 @@
+body{
+    background-color: #eeeeee;
+    color: #585858;
+    font-family: Verdana, sans-serif; 
+}
+
+form {
+    width: 32em;
+}
+
+legend{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+}
+
+fieldset{
+    background-color: #e6e6e6;
+}
+
+div{
+    padding: 1em;
+}
+
+textarea{
+    vertical-align: top;
+}
+
+label.align {
+    text-align: right;
+    display: inline-block;
+    width: 7em;
+    padding-right: 1em;
+}
+
+.lightGray{
+    background-color: whitesmoke;
+}
+
+.txtFieldWidth{
+    width: 7em;
+}
+
+.alignRadios{
+    text-align: center;
+    padding: 1em;
+}
+
+.alignSubmits{
+    text-align: right;
+    padding-bottom: 1em;
+}
+
