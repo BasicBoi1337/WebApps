@@ -1,0 +1,26 @@
+{
+    "person1": {
+        "name": "Regina Müller",
+        "gewicht": "60",
+        "groesse": "1.60",
+        "geschlecht": "weiblich",
+        "email": "test@test.com",
+        "inputfeld": ""
+    },
+    "person2": {
+        "name": "Torsten Schmidt",
+        "gewicht": "90",
+        "groesse": "1.80",
+        "geschlecht": "männlich",
+        "email": "test@test.com",
+        "inputfeld": ""
+    },
+    "person3": {
+        "name": "Peter Schmidt",
+        "gewicht": "70",
+        "groesse": "1.75",
+        "geschlecht": "männlich",
+        "email": "test@test.com",
+        "inputfeld": ""
+    }
+}

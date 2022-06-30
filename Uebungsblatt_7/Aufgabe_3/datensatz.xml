@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <person1>
+    <name>Regina Müller</name>
+    <gewicht>60</gewicht>
+    <groesse>1.60</groesse>
+    <geschlecht>weiblich</geschlecht>
+    <email>test@test.com</email>
+    <inputfeld></inputfeld>
+  </person1>
+  <person2>
+    <name>Torsten Schmidt</name>
+    <gewicht>90</gewicht>
+    <groesse>1.80</groesse>
+    <geschlecht>männlich</geschlecht>
+    <email>test@test.com</email>
+    <inputfeld></inputfeld>
+  </person2>
+  <person3>
+    <name>Peter Schmidt</name>
+    <gewicht>70</gewicht>
+    <groesse>1.75</groesse>
+    <geschlecht>männlich</geschlecht>
+    <email>test@test.com</email>
+    <inputfeld></inputfeld>
+  </person3>
+</root>
