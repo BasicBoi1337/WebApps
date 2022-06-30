@@ -1,0 +1,18 @@
+table, th, td, button {
+  border:1px solid black;
+}
+
+/*Styling für die Tabelle*/
+th{
+  background: #CCC;
+}
+tr:nth-child(even) {
+  background: #CCC
+}
+tr:nth-child(odd) {
+  background: #FFF
+}
+
+button{
+  margin: 0.2em;
+}

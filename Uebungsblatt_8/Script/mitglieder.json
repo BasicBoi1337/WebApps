@@ -1,0 +1,23 @@
+
+[
+    {
+        "name": "Smith",
+        "vorname": "John",
+        "email": "foo@bar.com"
+    },
+    {
+        "name": "Doe",
+        "vorname": "Jane",
+        "email": "jane@doe.org"
+    },
+    {
+        "name": "Jung",
+        "vorname": "Yvonne",
+        "email": "jung@yvonne.io"
+    },
+    {
+        "name": "Auerbach",
+        "vorname": "Jörn",
+        "email": "dont@mail.me"
+    }
+]
